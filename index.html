@@ -20,9 +20,9 @@ const checkSeq = [
 ];
 
 const checkReg = [
-	function() {return prop.value == "1" && pow.value == "1" && desigualdade.value == ">" && cons.value == "0";},
-	function() {return prop.value == "1" && pow.value == "1" && desigualdade.value == ">=" && cons.value == "2";},
-	function() {return prop.value == "n" && pow.value == "1" && desigualdade.value == "=" && cons.value == "0";},
+	function() {return prop.value == "1" && desigualdade.value == ">" && cons.value == "0";},
+	function() {return prop.value == "1" && desigualdade.value == ">=" && cons.value == "2";},
+	function() {return prop.value == "n" && desigualdade.value == "=" && cons.value == "0";},
 ];
 
 function test(val1,val2,val3) {
@@ -86,9 +86,10 @@ Quando você achar que souber, insira a regra aqui:
 	</select>
 	<input style="width:2em;font-size:1.0em;text-align:right" type="text" id='prop' value="1"/>
 	*a<sub>n-1</sub>
-	<sup><input id='pow' style="width:3em;vertical-align: text-top;" type="text" value="1"/></sup> + 
+	+ 
 	<input style="width:2em;font-size:1.0em;text-align:right" type="text" id='cons' value="0"/>
 </h1>
+<p>Para n = 3 ou 2</p>
 <button class="bttn" onclick="submit()">Enviar</button>
 <button class="bttn" onclick="newGame()" hidden id="next">Novo jogo</button>
 
