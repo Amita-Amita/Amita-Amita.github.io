@@ -2,6 +2,7 @@
 <head>
 <title>Trabalho Final de HUM-01</title>
 <link rel="stylesheet" href="formatacao.css">
+<link rel="icon" href="icone.png">
 </head>
 <body>
 <script>
@@ -9,20 +10,26 @@ var fase = 0;
 var liberaTeste = 0;
 const seqIni = [
 	[2,4,8],
+	[1,3,6],
 	[1,3,5],
 	[4,8,24],
+	[1,1,2],
 ];
 
 const checkSeq = [
 	function(val1,val2,val3) {return val1 < val2 && val2 < val3;},
+	function(val1,val2,val3) {return val1 < val2+2 && val2 < val3+3;},
 	function(val1,val2,val3) {return val1 + 2 <= val2 && val2 + 2 <= val3;},
 	function(val1,val2,val3) {return val1*2 == val2 && val2*3 == val3;},
+	function(val1,val2,val3) {return val1 == val2;},
 ];
 
 const checkReg = [
-	function() {return prop.value == "1" && desigualdade.value == ">" && cons.value == "0";},
-	function() {return prop.value == "1" && desigualdade.value == ">=" && cons.value == "2";},
-	function() {return prop.value == "n" && desigualdade.value == "=" && cons.value == "0";},
+	function() {return prop.value == "1" && desigualdade.value == ">" && cons.value == "0" && adhoc.value == "5";},
+	function() {return prop.value == "1" && desigualdade.value == "=" && cons.value == "n" && adhoc.value == "5";},
+	function() {return prop.value == "1" && desigualdade.value == ">="&& cons.value == "2" && adhoc.value == "5";},
+	function() {return prop.value == "n" && desigualdade.value == "=" && cons.value == "0" && adhoc.value == "5";},
+	function() {return prop.value == "1" && desigualdade.value == "=" && cons.value == "0" && adhoc.value == "2";},
 ];
 
 function test(val1,val2,val3) {
@@ -33,7 +40,6 @@ function test(val1,val2,val3) {
 
 function submit() {
 	if (!prop.value) {prop.value = "1";}
-	if (!pow.value) {pow.value = "1";}
 	if (!cons.value) {cons.value = "0";}
 	if (window.liberaTeste) {
 		if (checkReg[fase]()) {
@@ -48,6 +54,14 @@ function submit() {
 function newGame() {
 	window.fase = 1 + Math.floor(Math.random()*(checkSeq.length - 1));
 	seq.textContent = seqIni[fase][0]+', '+seqIni[fase][1]+', '+seqIni[fase][2];
+}
+
+function help() {
+	if (fase < 4) {alert('Se você está com dificuldade de encontrar a regra você provavelmente está testando sequências que obedecem a regra que você hipotetizou, tente algumas sequências que contradizem sua hipótese.');}
+	else { //adhoc
+		absoluto.hidden = true;
+		adhoc.hidden = false;
+	}
 }
 </script>
 <!--Cabeçalho-->
@@ -72,9 +86,9 @@ Você pode testar se diferentes sequências obedecem à regra:<br/>
 <input id="seq2" style="width:2em;font-size:1.0em;text-align:right" type="text"/>,
 <input id="seq3" style="width:2em;font-size:1.0em;text-align:right" type="text"/><br/>
 <button class="bttn" onclick="test(seq1.value,seq2.value,seq3.value)">Testar</button>
-<button class="bttn" onclick="alert('Se você está com dificuldade de encontrar a regra você provavelmente está testando sequências que obedecem a regra que você hipotetizou, tente algumas sequências que contradizem sua hipótese.');">Dica</button><br/>
+<button class="bttn" onclick="help();">Dica</button><br/>
 Quando você achar que souber, insira a regra aqui:
-<h1> 
+<h1 style="margin-bottom:0;"> 
 	a<sub>n</sub>
 	<select id="desigualdade" style="font-size:1.0em">
 		<option value="=">=</option>
@@ -89,7 +103,14 @@ Quando você achar que souber, insira a regra aqui:
 	+ 
 	<input style="width:2em;font-size:1.0em;text-align:right" type="text" id='cons' value="0"/>
 </h1>
-<p>Para n = 3 ou 2</p>
+<p style="margin-top:0;">
+	<span id="absoluto">Para n = 3 ou 2</span>
+	<select hidden id="adhoc">
+		<option value="5">Para n = 3 ou 2</option>
+		<option value="3">Para n = 3</option>
+		<option value="2">Para n = 2</option>
+	</select>
+</p>
 <button class="bttn" onclick="submit()">Enviar</button>
 <button class="bttn" onclick="newGame()" hidden id="next">Novo jogo</button>
 
