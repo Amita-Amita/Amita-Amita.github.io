@@ -5,65 +5,7 @@
 <link rel="icon" href="icone.png">
 </head>
 <body>
-<script>
-var fase = 0;
-var liberaTeste = 0;
-const seqIni = [
-	[2,4,8],
-	[1,3,6],
-	[1,3,5],
-	[4,8,24],
-	[1,1,2],
-];
 
-const checkSeq = [
-	function(val1,val2,val3) {return val1 < val2 && val2 < val3;},
-	function(val1,val2,val3) {return val1 < val2+2 && val2 < val3+3;},
-	function(val1,val2,val3) {return val1 + 2 <= val2 && val2 + 2 <= val3;},
-	function(val1,val2,val3) {return val1*2 == val2 && val2*3 == val3;},
-	function(val1,val2,val3) {return val1 == val2;},
-];
-
-const checkReg = [
-	function() {return prop.value == "1" && desigualdade.value == ">" && cons.value == "0" && adhoc.value == "5";},
-	function() {return prop.value == "1" && desigualdade.value == "=" && cons.value == "n" && adhoc.value == "5";},
-	function() {return prop.value == "1" && desigualdade.value == ">="&& cons.value == "2" && adhoc.value == "5";},
-	function() {return prop.value == "n" && desigualdade.value == "=" && cons.value == "0" && adhoc.value == "5";},
-	function() {return prop.value == "1" && desigualdade.value == "=" && cons.value == "0" && adhoc.value == "2";},
-];
-
-function test(val1,val2,val3) {
-	if (checkSeq[fase](val1,val2,val3)) {alert("Sequência válida.");}
-	else {alert("Sequência inválida.");}
-	window.liberaTeste = 1;
-}
-
-function submit() {
-	if (!prop.value) {prop.value = "1";}
-	if (!cons.value) {cons.value = "0";}
-	if (window.liberaTeste) {
-		if (checkReg[fase]()) {
-			if (fase==0) {explicacao.className='visivel';next.hidden = false;}
-			else {alert("Resposta correta!");}
-		}
-		else {alert("Resposta incorreta.");}
-		window.liberaTeste = 0;
-	} else {alert("Teste algumas sequências antes de tentar adivinhar a regra.");}
-}
-
-function newGame() {
-	window.fase = 1 + Math.floor(Math.random()*(checkSeq.length - 1));
-	seq.textContent = seqIni[fase][0]+', '+seqIni[fase][1]+', '+seqIni[fase][2];
-}
-
-function help() {
-	if (fase < 4) {alert('Se você está com dificuldade de encontrar a regra você provavelmente está testando sequências que obedecem a regra que você hipotetizou, tente algumas sequências que contradizem sua hipótese.');}
-	else { //adhoc
-		absoluto.hidden = true;
-		adhoc.hidden = false;
-	}
-}
-</script>
 <!--Cabeçalho-->
 <div class="cExt" style="height:140px;background-image:url(bg.png);">
 	<div class="cInt" style="background-image: url(logomarca.png);background-repeat: no-repeat;background-position: center;background-size:400px;">
@@ -81,6 +23,16 @@ function help() {
 André Afonso Cardoso da Silva (Turma 4)<br/>
 Othon Daiki Ishiyi (Turma 4)<br/>
 Yan Rafael Rodrigues Correa Martins (Turma 3)<br/>
+<br/>
+<b>Gravação dos vídeos</b><br/>
+André Afonso Cardoso da Silva<br/>
+Othon Daiki Ishiyi<br/>
+<br/>
+<b>Edição dos vídeos</b><br/>
+André Afonso Cardoso da Silva<br/>
+<br/>
+<b>Programação do site</b><br/>
+Yan Rafael Rodrigues Correa Martins<br/>
 <br/>
 O design do site foi inspirado pelo tema Sigma-9 da SCP Foundation criado por <a href="http://www.wikidot.com/user:info/aelanna">Aelanna</a> que é usado pela licensa Creative Commons Attribution-ShareAlike 3.0 (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)
 
