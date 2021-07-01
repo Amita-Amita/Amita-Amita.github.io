@@ -8,6 +8,7 @@
 <script>
 var fase = 0;
 var liberaTeste = 0;
+var helped = 0;
 const seqIni = [
 	[2,4,8],
 	[3,7,11],
@@ -62,7 +63,7 @@ function submit() {
 
 function newGame() {
 	window.fase++;
-	if (window.fase >= seqIni.length) {window.location.href = 'fase2.html'; return 1;}
+	if (window.fase >= seqIni.length) {window.location.href = 'adhoc.html'; return 1;}
 	seq.textContent = seqIni[fase][0]+', '+seqIni[fase][1]+', '+seqIni[fase][2];
 	if (window.fase == 2) {
 		fib.hidden = false;
@@ -72,12 +73,16 @@ function newGame() {
 		fib.hidden = true;
 		absoluto.textContent = "Para n = 2 ou 3";
 	}
+	if (helped) {ajuda.hidden = true;}
 	next.hidden = true;
 	return 1;
 }
 
 function help() {
-	if (fase == 0) {alert('Se você está com dificuldade de encontrar a regra você provavelmente está testando sequências que obedecem a regra que você hipotetizou, tente algumas sequências que contradizem sua hipótese.');}
+	if (true) {
+		alert('Se você está com dificuldade de encontrar a regra você provavelmente está testando sequências que obedecem a regra que você hipotetizou, tente algumas sequências que contradizem sua hipótese.');
+		window.helped = 1;
+	}
 	else { //adhoc
 		absoluto.hidden = true;
 		adhoc.hidden = false;
@@ -106,7 +111,7 @@ Você pode testar se diferentes sequências obedecem à regra:<br/>
 <input id="seq2" style="width:2em;font-size:1.0em;text-align:right" type="text"/>,
 <input id="seq3" style="width:2em;font-size:1.0em;text-align:right" type="text"/><br/>
 <button class="bttn" onclick="test(seq1.value,seq2.value,seq3.value)">Testar</button>
-<button class="bttn" onclick="help();">Dica</button><br/>
+<button class="bttn" id="ajuda" onclick="help();">Dica</button><br/>
 Quando você achar que souber, insira a regra aqui:
 <h1 style="margin-bottom:0;"> 
 	a<sub>n</sub>
