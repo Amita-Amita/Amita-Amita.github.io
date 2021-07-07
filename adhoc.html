@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>Adhoc - Trabalho Final de HUM-01</title>
+<link rel="stylesheet" href="formatacao.css">
+<link rel="icon" href="icone.png">
+</head>
+<body>
+<script>
+var fase = 0;
+
+function clear(campo) {
+	for (var i = 0; i < campo.value.length; i++) {
+		if (campo.value[i] == ' ') {
+			campo.value = campo.value.substring(0,i)+campo.value.substring(i+1);
+			i--;
+		}
+	}
+}
+
+function f(x) {
+	for (n = 0; n < x.length; n++) {if (x[n] == ',') {x = x.substring(0,n)+'.'+x.substring(n+1)}}
+	if (+x != NaN && +x > 0) {
+		alert("Resultado do experimento com "+x+"% de fibra: Aumento de "+(6*(+x)*(+x) - 11*(+x) + 6)+"%");
+	} else {
+		alert("Valor para teste inválido, por favor coloque apenas números positivos no campo da porcentagem a ser testada.");
+	}
+}
+
+function mais() {
+	var i = 0;
+	while (!window['pot'+i].hidden) {
+		i++;
+	}
+	if (i<4) {window['pot'+i].hidden = false;}
+	if (i>2) {addic.hidden = true; return 0;}
+	remov.hidden = false;
+}
+function menos() {
+	var i = 3;
+	while (window['pot'+i].hidden) {
+		i--;
+	}
+	if (i>=0) {window['pot'+i].hidden = true; window['coef'+i].value = 0;}
+	if (i<=1) {remov.hidden = true; return 0;}
+	addic.hidden = false;
+}
+function submit() {
+	var certo;
+	if (fase == 0) {certo = +coef3.value == 1 && +coef2.value == 0 && +coef1.value == 0 && +coef0.value == 0;}
+	else {certo = +coef3.value == 0 && +coef2.value == 6 && +coef1.value == -11 && +coef0.value == 6;}
+	if (certo) {
+		window['fimfase'+(fase+1)].hidden = false;
+		next.hidden = false;
+	} else {alert("Resposta incorreta");}
+}
+
+function newGame() {
+	if (fase++ == 0) {
+		next.hidden = true;
+		fimfase1.hidden = true;
+		fase2.hidden = false;
+	} else {window.location.href = "final.html";}
+}
+
+function help() {
+	for (n = 1; n <= 3-fase;n++) {
+		window['pot'+n].hidden = false;
+	}
+	if (fase == 1) {
+		pot3.hidden = true;
+		coef3.value = 0;
+	}
+}
+</script>
+<!--Cabeçalho-->
+<div class="cExt" style="height:140px;background-image:url(bg.png);">
+	<div class="cInt" style="background-image: url(logomarca.png);background-repeat: no-repeat;background-position: center;background-size:400px;">
+		<div class="titl header">Experimentos de Filosofia da Ciência</div>
+		<div class="header">André (T-4), Othon (T-4) e Yan (T-3)</div>
+	</div>
+</div>
+<div class="cExt" style="height:21px;margin-bottom:1em;">
+	<div class="cInt" style="color:#fff;margin: auto">
+		<!--a class="changePage" href="#">Falsificacionismo</a-->
+		<a class="changePage" href="index.html">Introdução</a>
+		<a class="changePage" href="credito.html">Crédito</a>
+	</div>
+</div>
+<!--/Cabeçalho-->
+
+<p style="margin:1em 10%"> Você faz parte de uma pesquisa de uma nova fibra, capaz de aumentar a resistência dos plásticos nos quais é misturado. Já foram feitos alguns testes com a fibra. Em um primeiro experimento, foi adicionado 1% dessa fibra num plástico, que teve a resistência aumentada em 1%. Depois, foram adicionados 2% dessa mesma fibra e foi verificado que a resistência aumentou em 8%. No último experimento, adicionou-se 3% dessa fibra, e a resistência aumentou em 27%. Infelizmente, a fibra ainda é muito difícil de ser produzida, de forma que não é possível fazer muitos testes.<br/><br/>Deseja-se encontrar uma função que calcula o valor do aumento da resistência para uma dada porcentagem de fibra:</p>
+<h1>f(1%) = 1, f(2%) = 8, f(3%) = 27</h1>
+<div id='fase2' hidden>
+	Após certo tempo, encontrou-se uma forma mais barata de produzir o material, agora mais testes podem ser feitos.
+	<h1>
+		f(<input style="width:2em;font-size:1.0em;text-align:right" type="text" id='experiment' value="0"/>%)
+	</h1>
+	<button class="bttn" onclick="f(experiment.value)">Testar</button>
+</div>
+
+<p>
+	Hipotetize qual será a melhora de resistência para outras porcentagens na composição do plástico.
+</p>
+<h1>
+	f(x%) = 
+	<span id='pot3' hidden><input style="width:2em;font-size:1.0em;text-align:right" type="text" id='coef3' value="0"/>*x³ + </span>
+	<span id='pot2' hidden><input style="width:2em;font-size:1.0em;text-align:right" type="text" id='coef2' value="0"/>*x² + </span>
+	<span id='pot1' hidden><input style="width:2em;font-size:1.0em;text-align:right" type="text" id='coef1' value="0"/>*x + </span>
+	<span id='pot0'><input style="width:2em;font-size:1.0em;text-align:right" type="text" id='coef0' value="0"/></span>
+</h1>
+<button class="bttn" id='addic' onclick="mais()">Adicionar termo</button>
+<button class="bttn" id='try' onclick="submit()">Enviar</button>
+<button class="bttn" id='ajuda' onclick="help()">Dica</button>
+<button class="bttn" id='remov' onclick="menos()" hidden>Remover termo</button><br/>
+<button class="bttn" id='next' onclick="newGame()" hidden>Próxima fase</button>
+<span id='fimfase1' hidden>
+	<h1>Resposta correta!</h1>
+	Vai ter vídeo pra primeira fase?
+</span>
+<span id='fimfase2' hidden>
+	<h1>Resposta correta!</h1>
+	Vai ter vídeo pra segunda fase.
+</span>
+</body>
+</html>

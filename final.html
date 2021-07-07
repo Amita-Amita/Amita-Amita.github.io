@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>Problemas - Trabalho Final de HUM-01</title>
+<link rel="stylesheet" href="formatacao.css">
+<link rel="icon" href="icone.png">
+</head>
+<body>
+<script>
+var fase = 0;
+
+function clear(campo) {
+	for (var i = 0; i < campo.value.length; i++) {
+		if (campo.value[i] == ' ') {
+			campo.value = campo.value.substring(0,i)+campo.value.substring(i+1);
+			i--;
+		}
+	}
+}
+
+function f(x) {
+	for (n = 0; n < x.length; n++) {if (x[n] == ',') {x = x.substring(0,n)+'.'+x.substring(n+1)}}
+	if (+x != NaN && +x > 0) {
+		alert("Resultado do experimento com "+x+"% de fibra: Aumento de "+(6*(+x)*(+x) - 11*(+x) + 6)+"%");
+	} else {
+		alert("Valor para teste inválido, por favor coloque apenas números positivos no campo da porcentagem a ser testada.");
+	}
+}
+
+
+function test() {
+	var certo;
+	if (fase == 0) {certo = +coef3.value == 1 && +coef2.value == 0 && +coef1.value == 0 && +coef0.value == 0;}
+	else {certo = +coef3.value == 0 && +coef2.value == 6 && +coef1.value == -11 && +coef0.value == 6;}
+	if (certo) {
+		fimfase1.hidden = false;
+		next.hidden = false;
+	} else {alert("Resposta incorreta");}
+}
+
+function newGame() {
+	next.hidden = true;
+	if (fase++ == 0) {
+		
+	} else {window.location.href = "final.html";}
+}
+
+function help() {
+	for (n = 1; n <= 3-fase;n++) {
+		window['pot'+n].hidden = false;
+	}
+	if (fase == 1) {
+		pot3.hidden = true;
+		coef3.value = 0;
+	}
+}
+</script>
+<!--Cabeçalho-->
+<div class="cExt" style="height:140px;background-image:url(bg.png);">
+	<div class="cInt" style="background-image: url(logomarca.png);background-repeat: no-repeat;background-position: center;background-size:400px;">
+		<div class="titl header">Experimentos de Filosofia da Ciência</div>
+		<div class="header">André (T-4), Othon (T-4) e Yan (T-3)</div>
+	</div>
+</div>
+<div class="cExt" style="height:21px;margin-bottom:1em;">
+	<div class="cInt" style="color:#fff;margin: auto">
+		<!--a class="changePage" href="#">Falsificacionismo</a-->
+		<a class="changePage" href="index.html">Introdução</a>
+		<a class="changePage" href="adhoc.html">Ad Hoc</a>
+		<a class="changePage" href="credito.html">Crédito</a>
+	</div>
+</div>
+<!--/Cabeçalho-->
+
+<p style="margin:1em 10%">N fiz essa pagina ainda kkk</p>
+
+</body>
+</html>
