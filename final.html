@@ -6,8 +6,6 @@
 </head>
 <body>
 <script>
-var fase = 0;
-
 function clear(campo) {
 	for (var i = 0; i < campo.value.length; i++) {
 		if (campo.value[i] == ' ') {
@@ -17,41 +15,16 @@ function clear(campo) {
 	}
 }
 
-function f(x) {
-	for (n = 0; n < x.length; n++) {if (x[n] == ',') {x = x.substring(0,n)+'.'+x.substring(n+1)}}
-	if (+x != NaN && +x > 0) {
-		alert("Resultado do experimento com "+x+"% de fibra: Aumento de "+(6*(+x)*(+x) - 11*(+x) + 6)+"%");
-	} else {
-		alert("Valor para teste inválido, por favor coloque apenas números positivos no campo da porcentagem a ser testada.");
+
+
+function submit() {
+	var botoes = document.getElementsByName("errado");
+	for (n = 5; n > -1 && !botoes[n].checked; n--) {
+		if (n==0) {n--;break;}
 	}
-}
-
-
-function test() {
-	var certo;
-	if (fase == 0) {certo = +coef3.value == 1 && +coef2.value == 0 && +coef1.value == 0 && +coef0.value == 0;}
-	else {certo = +coef3.value == 0 && +coef2.value == 6 && +coef1.value == -11 && +coef0.value == 6;}
-	if (certo) {
-		fimfase1.hidden = false;
-		next.hidden = false;
-	} else {alert("Resposta incorreta");}
-}
-
-function newGame() {
-	next.hidden = true;
-	if (fase++ == 0) {
-		
-	} else {window.location.href = "final.html";}
-}
-
-function help() {
-	for (n = 1; n <= 3-fase;n++) {
-		window['pot'+n].hidden = false;
-	}
-	if (fase == 1) {
-		pot3.hidden = true;
-		coef3.value = 0;
-	}
+	if (botoes[n].id == 'c5') {
+		fim.hidden = false;
+	} else {alert("Resposta incorreta.");}
 }
 </script>
 <!--Cabeçalho-->
@@ -71,7 +44,21 @@ function help() {
 </div>
 <!--/Cabeçalho-->
 
-<p style="margin:1em 10%">N fiz essa pagina ainda kkk</p>
+<p style="margin:1em 10%">Seis matemáticos estão estudando as propriedades de uma série de inteiros. Cada um fez uma descoberta:</p>
+<div style="margin: 1em 10%;text-align:left">
+	<input type="radio" id="c1" name="errado" value="1"><label for="c1">Cientista 1: a<sub>1</sub> + a<sub>3</sub> é ímpar, ou seja apenas um dos dois é ímpar</li></label><br/>
+	<input type="radio" id="c2" name="errado" value="2"><label for="c2">Cientista 2: a<sub>2</sub> + a<sub>4</sub> é par, ou seja, ou ambos são pares ou ambos são ímpares</li></label><br/>
+	<input type="radio" id="c3" name="errado" value="3"><label for="c3">Cientista 3: a<sub>2</sub> + a<sub>3</sub> é par</li></label><br/>
+	<input type="radio" id="c4" name="errado" value="4"><label for="c4">Cientista 4: a<sub>1</sub> + a<sub>4</sub> é ímpar</li></label><br/>
+	<input type="radio" id="c5" name="errado" value="5"><label for="c5">Cientista 5: 2 dos números são pares e 2 dos números são ímpares</li></label><br/>
+	<input type="radio" id="c6" name="errado" value="6"><label for="c6">Cientista 6: a<sub>3</sub> = 5</li></label>
+</div>
+<p style="margin:1em 10%">Entretanto as seis hipóteses não podem ser verdadeiras ao mesmo tempo!</p>
+<p style="margin:1em 10%">Encontre qual cientista errou.<br/><button class="bttn" id='try' onclick="submit()">Enviar resposta</button></p>
 
+<div id='fim' name='fim' hidden>
+	<h1>Resposta correta</h1>
+	Último vídeo<br/>e acabo :(
+</div>
 </body>
 </html>
