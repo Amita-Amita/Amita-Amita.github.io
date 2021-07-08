@@ -53,7 +53,7 @@ function submit() {
 	if (!cons.value) {cons.value = "0";}
 	if (window.liberaTeste) {
 		if (checkReg[fase]()) {
-			if (fase==0) {window['explicacao'+fase].className='visivel';next.hidden = false;}
+			if (fase==0) {window['explicacao'+fase].hidden=false;next.hidden = false;}
 			else {alert("Resposta correta!");}
 		}
 		else {alert("Resposta incorreta.");}
@@ -139,22 +139,22 @@ Quando você achar que souber, insira a regra aqui:
 <button class="bttn" onclick="submit()">Enviar</button>
 <button class="bttn" onclick="newGame()" hidden id="next">Novo jogo</button>
 
-<div id='explicacao3' class="oculto">
+<div id='explicacao3' hidden>
 	<h2 id='certo3'>Resposta correta!</h2>
 	Mais um vídeo aqui
 </div>
 
-<div id='explicacao2' class="oculto">
+<div id='explicacao2' hidden>
 	<h2 id='certo2'>Resposta correta!</h2>
 	Mais um vídeo aqui
 </div>
 
-<div id='explicacao1' class="oculto">
+<div id='explicacao1' hidden>
 	<h2 id='certo1'>Resposta correta!</h2>
 	Mais um vídeo aqui
 </div>
 
-<div id='explicacao0' class="oculto">
+<div id='explicacao0' hidden>
 	<h2 id='certo0'>Resposta correta!</h2>
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/IzdfNeV4XNo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
