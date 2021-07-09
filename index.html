@@ -62,6 +62,7 @@ function submit() {
 }
 
 function newGame() {
+	window['certo'+fase].hidden = true;
 	window.fase++;
 	if (window.fase >= seqIni.length) {window.location.href = 'adhoc.html'; return 1;}
 	seq.textContent = seqIni[fase][0]+', '+seqIni[fase][1]+', '+seqIni[fase][2];
