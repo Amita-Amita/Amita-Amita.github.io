@@ -69,7 +69,10 @@ function help() {
 	if (fase == 1) {
 		pot3.hidden = true;
 		coef3.value = 0;
+	} else {
+		addic.hidden = true;
 	}
+	remov.hidden = false;
 }
 </script>
 <!--Cabeçalho-->
@@ -115,10 +118,11 @@ function help() {
 <button class="bttn" id='next' onclick="newGame()" hidden>Próxima fase</button>
 <span id='fimfase1' hidden>
 	<h1>Resposta correta!</h1>
+	Com tais dados, imagina-se que a resposta correta seja x³.
 </span>
 <span id='fimfase2' hidden>
 	<h1>Resposta correta!</h1>
-	Vai ter vídeo pra segunda fase.
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/MCHV-gvl_j8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </span>
 </body>
 </html>
