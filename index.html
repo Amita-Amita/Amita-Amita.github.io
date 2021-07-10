@@ -53,8 +53,8 @@ function submit() {
 	if (!cons.value) {cons.value = "0";}
 	if (window.liberaTeste) {
 		if (checkReg[fase]()) {
-			if (fase==0) {window['explicacao'+fase].hidden=false;next.hidden = false;}
-			else {alert("Resposta correta!");}
+			window['explicacao'+fase].hidden=false;
+			next.hidden = false;
 		}
 		else {alert("Resposta incorreta.");}
 		window.liberaTeste = 0;
@@ -142,17 +142,17 @@ Quando você achar que souber, insira a regra aqui:
 
 <div id='explicacao3' hidden>
 	<h2 id='certo3'>Resposta correta!</h2>
-	Mais um vídeo aqui
+	A quarta sequência era uma progressão aritimética de segunda ordem.
 </div>
 
 <div id='explicacao2' hidden>
 	<h2 id='certo2'>Resposta correta!</h2>
-	Mais um vídeo aqui
+	A terceira sequência era uma sequência de Fibonacci.
 </div>
 
 <div id='explicacao1' hidden>
 	<h2 id='certo1'>Resposta correta!</h2>
-	Mais um vídeo aqui
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/QA6EGmnuXrI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <div id='explicacao0' hidden>
