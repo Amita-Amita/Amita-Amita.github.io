@@ -74,7 +74,7 @@ function newGame() {
 		fib.hidden = true;
 		absoluto.textContent = "Para n = 2 ou 3";
 	}
-	if (helped || fase != 3) {ajuda.hidden = true;}
+	if (helped && fase != 3) {ajuda.hidden = true;}
 	else if (fase == 3) {ajuda.hidden = false;}
 	next.hidden = true;
 	return 1;
