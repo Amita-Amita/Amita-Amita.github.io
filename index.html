@@ -36,7 +36,7 @@ const checkReg = [
 	function() {return prop.value == "1" && desigualdade.value == ">" && cons.value == "0";},//&& adhoc.value == "5";},
 	function() {return prop.value == "1" && desigualdade.value == "=" && cons.value == "4";},//&& adhoc.value == "5";},
 	function() {return prop.value == "1" && prop2.value == "1" && desigualdade.value == "="&& cons.value == "0";},// && adhoc.value == "5";},
-	function() {return prop.value == "1" && desigualdade.value == "=" && cons.value == "n+1";}// && adhoc.value == "5";},
+	function() {return prop.value == "1" && desigualdade.value == "=" && (cons.value == "n+1" || cons.value == "1+n");}// && adhoc.value == "5";},
 ];
 
 function test(val1,val2,val3) {
@@ -74,19 +74,19 @@ function newGame() {
 		fib.hidden = true;
 		absoluto.textContent = "Para n = 2 ou 3";
 	}
-	if (helped) {ajuda.hidden = true;}
+	if (helped || fase != 3) {ajuda.hidden = true;}
+	else if (fase == 3) {ajuda.hidden = false;}
 	next.hidden = true;
 	return 1;
 }
 
 function help() {
-	if (true) {
+	if (fase != 3) {
 		alert('Se você está com dificuldade de encontrar a regra você provavelmente está testando sequências que obedecem a regra que você hipotetizou, tente algumas sequências que contradizem sua hipótese.');
 		window.helped = 1;
 	}
 	else { //adhoc
-		absoluto.hidden = true;
-		adhoc.hidden = false;
+		alert('Se você está com dificuldade de encontrar a regra você provavelmente está testando sequências que obedecem a regra que você hipotetizou, tente algumas sequências que contradizem sua hipótese.\n\nAlém disso, lembre-se que você pode escrever a relação entre os números da sequência em função da posição deles na sequência (n).');
 	}
 }
 </script>
