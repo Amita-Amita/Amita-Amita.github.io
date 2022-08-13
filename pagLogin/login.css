@@ -1,0 +1,39 @@
+#tudo {
+	border: #001427 1px solid;
+	width:40vmax;
+	border-radius:1vmax;
+	margin: 10vmax auto;
+	background:#ddd;
+}
+
+body {
+	font-family:sans-serif;
+	text-align:center;
+}
+
+h1 {
+	color:#01295c;
+	margin:2em;
+}
+
+input {
+	padding:0.5em;
+	border-radius:0.5em;
+}
+
+input[type="submit"] {
+	color:white;
+	background-color:#01295c;
+	border-color:#05b;
+	padding:1em;
+	border-radius:1em
+}
+
+input[type="submit"]:hover {	
+	background-color:#024294;
+}
+
+label {
+	font-weight:bold;
+	font-size: 0.8em;
+}
