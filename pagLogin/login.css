@@ -1,8 +1,8 @@
 #tudo {
 	border: #001427 2px solid;
-	width:35vmax;
+	width:90vmin;
 	border-radius:3vmax;
-	margin: 10vmax auto;
+	margin: 20vh auto 0 auto;
 	background:#ddd;
 	padding-bottom:2em;
 }
