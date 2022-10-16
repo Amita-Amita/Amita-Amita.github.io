@@ -1,10 +1,15 @@
-#tudo {
+#corpo {
 	border: #001427 2px solid;
 	width:90vmin;
+	min-width:300px;
+	min-height:50vh;
 	border-radius:3vmax;
 	margin: 20vh auto 0 auto;
 	background:#ddd;
-	padding-bottom:2em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
 }
 
 #form {
@@ -16,13 +21,12 @@
 body {
 	font-family:sans-serif;
 	text-align:center;
-	background-image: url("aviaoTile.png");
-	background-size: 20vmax;
+	margin:0;
 }
 
 h1 {
 	color:#01295c;
-	margin:2em;
+	/* margin:2em; */
 }
 
 input {
@@ -46,4 +50,61 @@ input[type="submit"]:hover {
 label {
 	font-weight:bold;
 	font-size: 0.7em;
+}
+
+#header {
+	width: 100%; height: 2.6rem;
+	background-color: #ddd;
+	border-bottom: #aaa 2px solid;
+	display:flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+#header div {margin: 0 1rem;}
+
+#header div a{
+	padding: 0.6rem;
+	border-radius: 0.1rem;
+	color: #888;
+	text-decoration: none;
+}
+
+#header div a:hover, #home:hover{
+	background-color: #aaa;
+}
+
+#head-left a {
+	font-weight: bold;
+	color:#01295c !important;
+}
+
+#ddButton {
+	display: none;
+}
+
+#home {
+	background: url("https://www.itajunior.com.br/resources/images/icons/IconeAviao.ico") no-repeat;
+	background-position: 7% center;
+	background-size: 1.4rem;
+}
+
+@media (max-width:400px) {
+	#header {
+		flex-direction: column;
+		justify-content: center;
+		align-items: stretch;
+	}
+	#head-right {
+		display: none;
+		flex-direction: column;
+	}
+	#head-left {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	#ddButton {
+		display:block;
+	}
 }

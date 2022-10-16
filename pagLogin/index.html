@@ -1,13 +1,25 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Login</title>
 		<link rel="stylesheet" href="login.css"/>
+		<script src="dropdown.js"></script>
 		<link rel="icon" href="https://www.itajunior.com.br/resources/images/icons/IconeAviao.ico"/>
 	</head>
 	<body>
-		<div id="tudo">
-			<h1>Login</h1>
-			<form>
+		<div id="header">
+			<div id="head-left">
+				<a href="../index.html" id="home">Amita</a>
+				<a onclick="toggleDropdown()" id="ddButton">...</a>
+			</div>
+			<div id="head-right">
+				<a href="../hum01/index.html">HUM-01</a>
+				<a href="#">N sei o q mais</a>
+			</div>
+		</div>
+		<form>
+			<div id="corpo">
+				<h1>Login</h1>
 				<div id="form">
 					<label for="user">Usuário</label><br/>
 					<input type="text" name="user"/><br/>
@@ -15,7 +27,7 @@
 					<input type="password" name="pass"/><br/>
 				</div>
 				<input type="submit" value="Entrar"/>
-			</form>
-		</div>
+			</div>
+		</form>
 	</body>
 </html>
