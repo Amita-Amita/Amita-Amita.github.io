@@ -1,0 +1,67 @@
+<html>
+<head>
+	<title>Interpretador de Brainfuck</title>
+	<style>
+	body {font-family: sans-serif;}
+	#memoria {
+		display: grid;
+		row-gap: 5px;
+	}
+	#output {
+		font-family:mono;
+	}
+	#teste {bacground-color:black;}
+	</style>
+	<script>
+	memoria = Array(128).fill(0);
+	function run(str,index) {
+		for (i = 0; i < str.length; i++) {
+			switch (str[i]) {
+				case '+':
+					memoria[index]++;
+					update(index);
+					break;
+				case '-':
+					memoria[index]--;
+					update(index);
+					break;
+				case '>':
+					index++;
+					if (index >= memoria.length) {index -=  memoria.length;}
+					break;
+				case '<':
+					index--;
+					if (index < 0) {index += memoria.length;}
+					break;
+				case ',':
+					memoria[index] = input.value[0];
+					input.value = input.value.substring(1);
+					break;
+				case '.':
+					output.value += String.fromCharCode(memoria[index]);
+					break;
+				case '[':
+					var j; conta = 0;
+					for (j = i+1; j < str.length; j++) {
+						if (str[j] == '[') {conta++;}
+						if (str[j] == ']') {
+							conta--;
+							if (conta == -1) {break;}
+						}
+					}
+					while (memoria[index] != 0) {
+						index = run(str.substring(i+1,j),index);
+					}
+					break;
+			}
+			
+		}
+		return index;
+	}
+	</script>
+</head>
+<body>
+	<textarea id="codigo" rows="4" cols="50"></textarea>
+	<div id="output"></div>
+</body>
+</html>

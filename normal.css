@@ -1,0 +1,76 @@
+body {
+	font-family:sans-serif;
+	margin: 0;
+	background-color:#222;
+	color: #aaa;
+	overflow-x: hidden;
+}
+
+::selection{
+	color:#eee !important;
+	background-color: #c00 !important;
+	text-decoration-color: #eee !important;
+}
+
+#header {
+	width:100%;
+	margin: 0;
+	background-color: #000;
+	color: #aaa;
+	padding:0.5rem;
+	position:sticky;
+	border-bottom:#aaa solid 2px;
+}
+
+#header h1{margin-left:5vw;}
+
+#sliding{
+	display:flex;
+	flex-direction:row;
+	align-items:stretch;
+	justify-content:start;
+	margin-bottom:1.5rem;
+	height: 80vmin;
+	width: 270vw;
+	animation-name:carrossel;
+	animation-timing-function: ease;
+	animation-iteration-count: infinite;
+	animation-duration: 15s;
+}
+
+@keyframes carrossel {
+	0% {margin-left: 5vw;}
+	27% {margin-left: 5vw;}
+	33% {margin-left: -85vw;}
+	61% {margin-left: -85vw;}
+	67% {margin-left: -175vw;}
+	93% {margin-left: -175vw;}
+	100% {margin-left: 5vw;}
+}
+
+#sliding div{
+	display:flex;
+	flex-direction:column;
+	align-items: start;
+	justify-content:end;
+	width:90vw;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	color:#fff;
+	padding:1rem;
+}
+#sliding div h2, #sliding div p{
+	background-color: #000a;
+	padding:0.2rem;
+	max-width: 60%;
+}
+#bot1{background-image: url(twitterBot.png);}
+#hum01{background-image: url(hum01.png);}
+
+.destaque {color:#fd0;}
+
+h1,h2,p {margin:0;}
+
+a {	color: #ca0;}
+a:hover {color:#ec0;}

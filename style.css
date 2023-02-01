@@ -1,0 +1,126 @@
+body {
+	display: flex;
+	flex-direction:row;
+	align-items:start;
+	justify-content:start;
+	font-family:sans-serif;
+	margin: 0;
+	background-color:#222;
+	color: #aaa;
+	overflow-y: hidden;
+}
+
+::selection{
+	color:#eee !important;
+	background-color: #c00 !important;
+	text-decoration-color: #eee !important;
+}
+
+#header {
+	height:100vh;
+	margin: 0;
+	background-color: #000;
+	color: #aaa;
+	padding:0 0.5rem;
+	position:sticky;
+	border-right:#aaa solid 2px;
+}
+
+#header h1{
+	margin:5vh 0;
+	font-family: monospace;
+	font-size: 1.8rem;
+	width:0.6em;
+	line-height:8.18vh;
+	line-break: anywhere;
+}
+
+#sliding{
+	display:flex;
+	flex-direction:column;
+	align-items:stretch;
+	justify-content:start;
+	height: 270vh;
+	width: 160vh;
+	animation-name:carrossel;
+	animation-timing-function: ease;
+	animation-iteration-count: infinite;
+	animation-duration: 15s;
+}
+
+@keyframes carrossel {
+	0% {margin-top: 5vh;}
+	27% {margin-top: 5vh;}
+	33% {margin-top: -85vh;}
+	61% {margin-top: -85vh;}
+	67% {margin-top: -175vh;}
+	93% {margin-top: -175vh;}
+	100% {margin-top: 5vh;}
+}
+
+#sliding div{
+	display:flex;
+	flex-direction:column;
+	align-items: start;
+	justify-content:end;
+	height:90vh;
+	width:160vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	color:#fff;
+	padding:1rem;
+}
+#sliding div h2, #sliding div p{
+	background-color: #000a;
+	padding:0.2rem;
+	max-width: 60%;
+}
+#etc{
+	background-color:#000;
+	height:90vh;
+	margin: 5vh 0 5vh 32px;
+	padding:0 1rem;
+	display:grid;
+	row-gap: 0;
+	grid-template-rows: 1fr 1fr 2fr 1fr 2fr 1fr 2fr;
+	grid-auto-flow: column;
+}
+
+#etc h1{
+	grid-column-start: 1;
+	grid-column-end: 4;
+	margin: auto;
+}
+
+.metade.topo{
+	border-radius: 10px 10px 0 0;
+	border-width: 1px 1px 0 1px;
+	margin:auto 10px 0 10px;
+	background-color:#222;
+	text-align: center;
+}
+.metade.base{
+	border-radius: 0 0 10px 10px;
+	border-width: 0 1px 1px 1px;
+	margin: 0 10px 10px 10px;
+	background-color:#111;
+}
+
+.metade{
+	border-color:#aaa;
+	border-style: solid;
+	width:33vw;
+	padding:10px;
+}
+
+#bot1{background-image: url(twitterBot.png);}
+#hum01{background-image: url(hum01.png);}
+#momentum{background-image: url(momentum.png);}
+
+.destaque, .metade.topo{color:#fd0;}
+
+h1,h2,p {margin:0;}
+
+a {	color: #ca0;}
+a:hover {color:#ec0;}

@@ -1,3 +1,5 @@
 # sitezin
 
-Site no Github Pages do amita pra diversos propósitos
+Markdown e um trem legal
+
+$$e^i^\pi + 1 = 0$$
