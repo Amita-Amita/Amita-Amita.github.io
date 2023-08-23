@@ -29,7 +29,7 @@ body {
 	flex-direction:row;
 	align-items:stretch;
 	justify-content:start;
-	margin-bottom:1.5rem;
+	margin-bottom:0;
 	height: 80vmin;
 	width: 270vw;
 	animation-name:carrossel;
@@ -53,22 +53,94 @@ body {
 	flex-direction:column;
 	align-items: start;
 	justify-content:end;
+	box-sizing: border-box;
 	width:90vw;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 	color:#fff;
 	padding:1rem;
+	flex-shrink: 0;
 }
 #sliding div h2, #sliding div p{
 	background-color: #000a;
 	padding:0.2rem;
 	max-width: 60%;
 }
+
+#etc{
+	background-color:#000;
+	box-sizing: border-box;
+	width:90vw;
+	margin: 0 5vw 32px 5vw;
+	padding:0 1rem;
+	display:grid;
+	row-gap: 0;
+	grid-auto-flow: row;
+}
+
+@media (min-width: 750px) {
+	#etc {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	#etc h1{
+		grid-column-end: 4;
+	}
+}
+
+@media (min-width: 550px) and (max-width: 750px) {
+	#etc {
+		grid-template-columns: 1fr 1fr;
+	}
+	#etc h1{
+		grid-column-end: 3;
+	}
+}
+
+@media (max-width: 550px) {
+	#etc {
+		grid-template-columns: 1fr;
+	}
+	#etc h1{
+		grid-column-end: 2;
+	}
+}
+
+#etc h1{
+	grid-column-start: 1;
+	margin: 1rem auto;
+}
+
+.unidadetc {
+	margin: 10px;
+}
+
+.metade.topo{
+	border-radius: 10px 10px 0 0;
+	border-width: 1px 1px 0 1px;
+	background-color:#222;
+	text-align: center;
+}
+.metade.base{
+	border-radius: 0 0 10px 10px;
+	border-width: 0 1px 1px 1px;
+	background-color:#111;
+}
+
+.metade{
+	border-color:#aaa;
+	border-style: solid;
+	width:100%;
+	padding:10px;
+	box-sizing: border-box;
+}
+
+
 #bot1{background-image: url(twitterBot.png);}
 #hum01{background-image: url(hum01.png);}
+#momentum{background-image: url(momentum.png);}
 
-.destaque {color:#fd0;}
+.destaque, .metade.topo {color:#fd0;}
 
 h1,h2,p {margin:0;}
 
