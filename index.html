@@ -4,11 +4,19 @@
 	<script language="javascript" type="text/javascript" src="processing/p5.min.js"></script>
 	<link rel="stylesheet" href="./style.css" media="screen and (min-aspect-ratio:9/5)"/>
 	<link rel="stylesheet" href="./normal.css" media="screen and (max-aspect-ratio:9/5)"/>
+	<script>
+		window.onresize = () => {
+			// media queries fuck animations up
+			// maybe this fixes animations when the aspect-ratio crosses the threshold
+			document.querySelector("#sliding").style.animationName = "";
+			document.querySelector("#sliding").style.animationName = "carrossel";
+		}
+	</script>
 </head>
 <body>
 	<div id="header"><h1>Os Trem Do Yan</h1></div>
 	<div id="sliding">
-		<div id="momentum">
+		<div id="momentum">	
 			<h2 class="destaque">Momentum</h2>
 			<p>Jogo feito em uma Game Jam entre alunos do ITA.</p>
 			<p>Disponível na plataforma <a href="https://ya-25.itch.io/momentum">itch.io</a> de jogos indies.</p>
@@ -60,6 +68,12 @@
 			<div class="metade topo"><h2><a href="https://gitlab.com/amita-amita-amita/datas-ita-gnome">Relógio pro ITA</a></h2></div>
 			<div class="metade base">
 				Extensão do GNOME para mostrar datas de acordo com o calendário do ITA.
+			</div>
+		</div>
+		<div class="unidadetc">
+			<div class="metade topo"><h2><a href="https://www.shadertoy.com/user/Amita">Shadertoy</a></h2></div>
+			<div class="metade base">
+				Site de criação de shaders com WebGL, visualisáveis no browser.
 			</div>
 		</div>
 	</div>

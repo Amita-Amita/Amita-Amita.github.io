@@ -42,20 +42,33 @@ body {
 	justify-content:start;
 	height: 270vh;
 	width: 160vh;
+	margin-left: 0 !important;
 	animation-name:carrossel;
 	animation-timing-function: ease;
 	animation-iteration-count: infinite;
 	animation-duration: 15s;
 }
-
-@keyframes carrossel {
-	0% {margin-top: 5vh;}
-	27% {margin-top: 5vh;}
-	33% {margin-top: -85vh;}
-	61% {margin-top: -85vh;}
-	67% {margin-top: -175vh;}
-	93% {margin-top: -175vh;}
-	100% {margin-top: 5vh;}
+@media (min-aspect-ratio:9/5) {
+	@keyframes carrossel {
+		0% {margin-top: 5vh;}
+		27% {margin-top: 5vh;}
+		33% {margin-top: -85vh;}
+		61% {margin-top: -85vh;}
+		67% {margin-top: -175vh;}
+		93% {margin-top: -175vh;}
+		100% {margin-top: 5vh;}
+	}
+}
+@media (max-aspect-ratio:9/5) {
+	@keyframes carrossel {
+		0% {margin-left: 5vw;}
+		27% {margin-left: 5vw;}
+		33% {margin-left: -85vw;}
+		61% {margin-left: -85vw;}
+		67% {margin-left: -175vw;}
+		93% {margin-left: -175vw;}
+		100% {margin-left: 5vw;}
+	}
 }
 
 #sliding div{
