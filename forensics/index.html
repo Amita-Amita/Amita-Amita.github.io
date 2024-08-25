@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<title>Desafios de Forênsica</title>
+		<link href="style.css" rel="stylesheet">
+		<script>
+			flags = {
+				Acrop:"flag{h3r3's_j0hnny}",
+				Macaco:"flag{0lh4_0_m4c444444c0}",
+			}
+			function check(desafio) {
+				inp = document.getElementById("flag"+desafio);
+				if (inp.value == flags[desafio]) {
+					alert("Resposta certa");
+					inp.classList.add("resolvido");
+				} else {
+					alert("Resposta incorreta");
+				}
+			}
+			function toggle(desafio){
+				lvl = document.getElementById("diff"+desafio);
+				title = document.getElementById("title"+desafio);
+				content = document.getElementById("cont"+desafio);
+				isVisible = false;
+				lvl.classList.forEach(x => {isVisible = isVisible || x == 'show'});
+				if (isVisible) {
+					lvl.classList.remove("show");
+					//title.classList.remove("show");
+					content.classList.remove("show");
+					lvl.classList.add("hide");
+					//title.classList.add("hide");
+					content.classList.add("hide");
+				} else {
+					lvl.classList.add("show");
+					//title.classList.add("show");
+					content.classList.add("show");
+					lvl.classList.remove("hide");
+					//title.classList.remove("hide");
+					content.classList.remove("hide");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="corpo">
+			<div id="header">
+				<h1>Forensics</h1>
+				<div>
+					<a href="#">Exemplo</a>
+					<a href="#">Exemplo</a>
+				</div>
+			</div>
+			<div class="cell titulo" id="titleMacaco" onclick="toggle('Macaco')">
+				<h3>No rabo do macaco</h3>
+				<div class="lvl facil" id="diffMacaco">Fácil</div>
+			</div>
+			<div class="cell conteudo" id="contMacaco">
+				<p>mandrill.png é um clássico</p>
+				<img src="./mandrill.png"/><br/>
+				<h6>Dicas:</h6>
+				<div class="dicas">
+					<div onclick="alert('O nome do desafio é uma dica. A flag tem 25 caracteres.');">1</div>
+				</div>
+				<div>
+					<input type="text" id="flagAcrop" placeholder="Insira a flag do formato flag{...} aqui" style="width:20em"/>
+					<input type="submit" class="btn" value="Enviar" onclick="check('Macaco');"/>
+				</div>
+			</div>
+			<div class="cell titulo" id="titleAcrop" onclick="toggle('Acrop')">
+				<h3>Quase um Acropalípse</h3>
+				<div class="lvl dificil" id="diffAcrop">Difícil</div>
+			</div>
+			<div class="cell conteudo" id="contAcrop">
+				<p>Uma pessoa acidentalmente tirou print contendo informação sensível, ao notar isso, abriu o editor de screenshot do Windows (que estava desatualizado), cortou fora a informação e salvou por cima. <b>Recupere ao máximo possível a imagem original.</b></p>
+				<img src="./acropalypse.png"/><br/>
+				<h6>Dicas:</h6>
+				<div class="dicas">
+					<div onclick="alert('Estude o formato de imagem png.');">1</div>
+					<div onclick="alert('A resolução da imagem original era 439x339.');">2</div>
+					<div onclick="alert('Provavelmente o jeito mais fácil de fazer é transformar em uma imagem válida (não corrompida) 439x399.');">3</div>
+				</div>
+				<input type="text" id="flagAcrop" placeholder="Insira a flag do formato flag{...} aqui" style="width:20em"/>
+				<input type="submit" class="btn" value="Enviar" onclick="check('Acrop');"/>
+			</div>
+		</div>
+	</body>
+</html>
