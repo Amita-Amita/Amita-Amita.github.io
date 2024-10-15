@@ -124,6 +124,7 @@ img{
 	max-height:60vh;
 }
 .resolvido{border-color:#0d1;}
+.btn.resolvido{background-color: #0d1;}
 
 #header{
 	background-color:#444;
