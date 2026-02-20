@@ -24,15 +24,16 @@ body {
 	padding:0 0.5rem;
 	position:sticky;
 	border-right:#aaa solid 2px;
+	width:1.8ch;
 }
 
 #header h1{
 	margin:5vh 0;
 	font-family: monospace;
 	font-size: 1.8rem;
-	width:0.6em;
-	line-height:8.18vh;
-	line-break: anywhere;
+	width:90vh;
+	rotate:-90deg;
+	translate:-43.5vh 42.3vh;
 }
 
 #sliding{
